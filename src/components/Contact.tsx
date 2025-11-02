@@ -5,9 +5,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: formRef, isVisible: formVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -45,19 +48,29 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-32 bg-background border-t border-border">
+    <section id="contact" className="py-32 bg-gradient-subtle border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="mb-16 animate-slide-up">
-          <h2 className="text-5xl md:text-7xl font-black mb-4 text-foreground">
+        <div
+          ref={titleRef}
+          className={`mb-16 transition-all duration-1000 ${
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <h2 className="text-5xl md:text-7xl font-black mb-6 text-foreground">
             Get In Touch
           </h2>
-          <p className="text-base text-muted-foreground max-w-2xl">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
             Have a project in mind? Let's work together to create something amazing.
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <Card className="p-8 border-border bg-card animate-slide-up">
+          <Card
+            ref={formRef}
+            className={`p-8 border-2 border-border bg-card transition-all duration-1000 delay-300 ${
+              formVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Input
@@ -91,14 +104,19 @@ const Contact = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 text-base uppercase tracking-wider"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 text-sm uppercase tracking-[0.2em] rounded-none group relative overflow-hidden"
               >
-                Send Message
+                <span className="relative z-10">Send Message</span>
+                <div className="absolute inset-0 bg-foreground transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
               </Button>
             </form>
           </Card>
 
-          <div className="flex justify-center gap-6 mt-12 animate-slide-up">
+          <div
+            className={`flex justify-center gap-6 mt-12 transition-all duration-1000 delay-500 ${
+              formVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             {socialLinks.map((social, index) => (
               <a
                 key={index}
@@ -106,9 +124,9 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="p-4 rounded-full border border-border hover:border-primary bg-card hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+                className="p-4 rounded-full border-2 border-border hover:border-primary bg-card hover:bg-primary/10 transition-all duration-300 hover:scale-110 group"
               >
-                <social.icon className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
+                <social.icon className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
             ))}
           </div>

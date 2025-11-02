@@ -2,8 +2,11 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Projects = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: projectsRef, isVisible: projectsVisible } = useScrollAnimation();
   const projects = [
     {
       title: "E-Commerce Platform",
@@ -40,26 +43,34 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-gradient-subtle border-t border-border">
+    <section id="projects" className="py-32 bg-background border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="mb-16 animate-slide-up">
-          <h2 className="text-5xl md:text-7xl font-black mb-4 text-foreground">
+        <div
+          ref={titleRef}
+          className={`mb-16 transition-all duration-1000 ${
+            titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <h2 className="text-5xl md:text-7xl font-black mb-6 text-foreground">
             Featured Projects
           </h2>
-          <p className="text-base text-muted-foreground max-w-2xl">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl">
             Here are some of my recent projects that showcase my full-stack development skills
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div ref={projectsRef} className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
-            <Card 
+            <Card
               key={index} 
-              className="group overflow-hidden hover:border-primary/50 transition-all duration-300 animate-slide-up border-border bg-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-500 bg-card hover:shadow-2xl hover:shadow-primary/10 ${
+                projectsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="overflow-hidden">
-                <img 
+              <div className="overflow-hidden relative">
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-500 z-10" />
+                <img
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
