@@ -21,43 +21,43 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-subtle">
+    <section id="about" className="py-32 bg-background border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            About Me
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-5xl md:text-7xl font-black mb-12 text-foreground animate-slide-up">
+            I believe in a user centered design approach, ensuring that every project I work on is tailored to meet the specific needs of its users.
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8" />
-        </div>
 
-        <div className="max-w-3xl mx-auto mb-12 animate-slide-up">
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            I'm a passionate Full-Stack Web Developer with a focus on creating performant, 
-            user-friendly web applications. With expertise spanning both frontend and backend 
-            technologies, I bring ideas to life through clean, efficient code.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            My approach combines technical excellence with creative problem-solving, ensuring 
-            every project delivers not just functionality, but an exceptional user experience. 
-            I'm constantly learning and adapting to new technologies to stay at the forefront 
-            of web development.
-          </p>
-        </div>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="animate-slide-up">
+              <p className="text-sm text-primary font-bold mb-4 uppercase tracking-wider">This is me.</p>
+              <h3 className="text-3xl font-bold mb-6 text-foreground">Hi, I'm Irshad Ahmed.</h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
+                I'm a full-stack web developer dedicated to turning ideas into creative solutions. I specialize in creating seamless and intuitive user experiences.
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                My approach focuses on creating scalable, high-performing solutions tailored to both user needs and business objectives. By prioritizing performance, accessibility, and responsiveness, I strive to deliver experiences that not only engage users but also drive tangible results.
+              </p>
+            </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {highlights.map((item, index) => (
-            <Card 
-              key={index} 
-              className="p-6 text-center hover:shadow-soft transition-all duration-300 hover:-translate-y-1 animate-slide-up border-border bg-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <item.icon className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-card-foreground">{item.title}</h3>
-              <p className="text-muted-foreground">{item.description}</p>
-            </Card>
-          ))}
+            <div className="space-y-6 animate-slide-up">
+              {highlights.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="border-l-2 border-primary pl-6 hover:border-primary/60 transition-all duration-300"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-start gap-4">
+                    <item.icon className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 text-foreground">{item.title}</h3>
+                      <p className="text-muted-foreground">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

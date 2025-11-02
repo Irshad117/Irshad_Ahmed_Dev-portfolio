@@ -45,20 +45,19 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-32 bg-background border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="mb-16 animate-slide-up">
+          <h2 className="text-5xl md:text-7xl font-black mb-4 text-foreground">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl">
             Have a project in mind? Let's work together to create something amazing.
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <Card className="p-8 shadow-card border-border bg-card animate-slide-up">
+          <Card className="p-8 border-border bg-card animate-slide-up">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <Input
@@ -67,7 +66,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-background border-input"
+                  className="bg-background border-input text-foreground placeholder:text-muted-foreground h-12"
                 />
               </div>
               <div>
@@ -77,7 +76,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-background border-input"
+                  className="bg-background border-input text-foreground placeholder:text-muted-foreground h-12"
                 />
               </div>
               <div>
@@ -87,12 +86,12 @@ const Contact = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows={6}
-                  className="bg-background border-input resize-none"
+                  className="bg-background border-input resize-none text-foreground placeholder:text-muted-foreground"
                 />
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-soft"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold h-12 text-base uppercase tracking-wider"
               >
                 Send Message
               </Button>
@@ -107,9 +106,9 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className={`p-4 rounded-full bg-secondary hover:bg-card transition-all duration-300 hover:scale-110 shadow-card ${social.color}`}
+                className="p-4 rounded-full border border-border hover:border-primary bg-card hover:bg-primary/10 transition-all duration-300 hover:scale-110"
               >
-                <social.icon className="h-6 w-6" />
+                <social.icon className="h-6 w-6 text-muted-foreground hover:text-primary transition-colors" />
               </a>
             ))}
           </div>

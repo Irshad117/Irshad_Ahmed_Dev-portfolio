@@ -40,14 +40,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-subtle">
+    <section id="projects" className="py-32 bg-gradient-subtle border-t border-border">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-slide-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="mb-16 animate-slide-up">
+          <h2 className="text-5xl md:text-7xl font-black mb-4 text-foreground">
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground max-w-2xl">
             Here are some of my recent projects that showcase my full-stack development skills
           </p>
         </div>
@@ -56,37 +55,54 @@ const Projects = () => {
           {projects.map((project, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden hover:shadow-soft transition-all duration-300 hover:-translate-y-2 animate-slide-up border-border bg-card"
+              className="group overflow-hidden hover:border-primary/50 transition-all duration-300 animate-slide-up border-border bg-card"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <CardHeader>
-                <CardTitle className="text-card-foreground">{project.title}</CardTitle>
-                <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
+                <CardTitle className="text-2xl font-bold text-card-foreground group-hover:text-primary transition-colors">
+                  {project.title}
+                </CardTitle>
+                <CardDescription className="text-muted-foreground text-base">
+                  {project.description}
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline" className="border-primary/30 text-primary">
+                    <Badge 
+                      key={techIndex} 
+                      variant="outline" 
+                      className="border-border bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
                       {tech}
                     </Badge>
                   ))}
                 </div>
               </CardContent>
               <CardFooter className="gap-4">
-                <Button variant="outline" size="sm" className="flex-1" asChild>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="flex-1 hover:bg-primary hover:text-primary-foreground hover:border-primary" 
+                  asChild
+                >
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" />
                     Code
                   </a>
                 </Button>
-                <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90" asChild>
+                <Button 
+                  size="sm" 
+                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground" 
+                  asChild
+                >
                   <a href={project.demo} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Demo
