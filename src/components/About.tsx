@@ -1,92 +1,82 @@
-import { Code2, Zap, Users } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import { Code2, Palette, Zap } from "lucide-react";
 
 const About = () => {
-  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation();
 
-  const highlights = [
+  const features = [
     {
       icon: Code2,
       title: "Clean Code",
-      description: "Writing maintainable, scalable code following best practices"
+      description: "Writing maintainable, scalable, and efficient code following best practices.",
     },
     {
       icon: Zap,
       title: "Performance",
-      description: "Optimizing for speed and efficiency in every project"
+      description: "Optimizing applications for speed and seamless user experiences.",
     },
     {
-      icon: Users,
+      icon: Palette,
       title: "User-Centric",
-      description: "Creating intuitive, accessible experiences for all users"
-    }
+      description: "Designing beautiful, intuitive interfaces that users love.",
+    },
   ];
 
   return (
-    <section id="about" className="py-32 bg-background border-t border-border">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div
-            ref={titleRef}
-            className={`mb-20 transition-all duration-1000 ${
-              titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight text-foreground max-w-5xl">
-              I believe in a{" "}
-              <span className="text-primary">user centered design approach</span>, ensuring that
-              every project I work on is tailored to meet the specific needs of its users.
-            </h2>
-          </div>
+    <section id="about" className="py-20 bg-gradient-subtle" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            About <span className="text-primary">Me</span>
+          </h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+        </motion.div>
 
-          <div
-            ref={contentRef}
-            className={`grid lg:grid-cols-2 gap-16 items-start transition-all duration-1000 delay-300 ${
-              contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-card rounded-2xl shadow-card p-8 md:p-12 mb-12"
           >
-            <div className="space-y-6">
-              <div className="inline-block border-l-4 border-primary pl-4">
-                <p className="text-sm text-primary font-bold uppercase tracking-wider mb-2">
-                  This is me.
-                </p>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-black text-foreground">
-                Hi, I'm Irshad Ahmed.
-              </h3>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                I'm a full-stack web developer dedicated to turning ideas into creative solutions. I
-                specialize in creating seamless and intuitive user experiences.
-              </p>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                My approach focuses on creating scalable, high-performing solutions tailored to both
-                user needs and business objectives. By prioritizing performance, accessibility, and
-                responsiveness, I strive to deliver experiences that not only engage users but also
-                drive tangible results.
-              </p>
-            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              I'm a passionate <span className="text-primary font-semibold">Full-Stack Developer</span> with{" "}
+              <span className="text-primary font-semibold">3+ years</span> of experience building modern web applications.
+              I specialize in creating seamless digital experiences that combine elegant design with robust functionality.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              My expertise spans across <span className="text-primary font-semibold">React</span>,{" "}
+              <span className="text-primary font-semibold">Next.js</span>,{" "}
+              <span className="text-primary font-semibold">Node.js</span>, and{" "}
+              <span className="text-primary font-semibold">PostgreSQL</span>, allowing me to deliver
+              complete solutions from concept to deployment. I'm committed to writing clean, maintainable
+              code and staying updated with the latest web technologies.
+            </p>
+          </motion.div>
 
-            <div className="space-y-8">
-              {highlights.map((item, index) => (
-                <div
-                  key={index}
-                  className="group border-l-2 border-border hover:border-primary pl-6 transition-all duration-300 cursor-pointer"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <item.icon className="h-6 w-6 text-primary group-hover:text-primary-foreground transition-colors" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-card rounded-2xl shadow-card p-6 hover:shadow-hover transition-all"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                  <feature.icon className="h-6 w-6 text-primary" />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
