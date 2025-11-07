@@ -1,6 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Star, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
@@ -8,57 +8,65 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, inventory management, and real-time order tracking.",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-    },
-    {
-      title: "Task Management App",
-      description: "Collaborative task management platform with real-time updates, team collaboration features, and analytics dashboard.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    },
-    {
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media management with data visualization, scheduling, and engagement metrics.",
-      tech: ["React", "Express.js", "Chart.js", "MongoDB"],
+      title: "Enterprise SaaS Platform",
+      description: "Full-stack SaaS solution with multi-tenancy, role-based access control, real-time analytics, and automated billing. Serving 10K+ active users with 99.9% uptime.",
+      tech: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Stripe"],
       github: "https://github.com",
       demo: "https://demo.com",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      featured: true,
+      stats: { users: "10K+", uptime: "99.9%" },
     },
     {
-      title: "Portfolio Website Builder",
-      description: "Drag-and-drop portfolio builder with customizable templates, SEO optimization, and deployment integration.",
-      tech: ["Vue.js", "Node.js", "AWS", "PostgreSQL"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
-    },
-    {
-      title: "Real-time Chat Application",
-      description: "WebSocket-based chat app with end-to-end encryption, file sharing, and group messaging features.",
-      tech: ["React", "Socket.io", "Node.js", "Redis"],
+      title: "Real-Time Collaboration Tool",
+      description: "WebSocket-based collaborative workspace with live editing, video conferencing, file sharing, and project management features. Optimized for teams of all sizes.",
+      tech: ["React", "Socket.io", "Redis", "MongoDB", "WebRTC"],
       github: "https://github.com",
       demo: "https://demo.com",
       image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=800&q=80",
+      featured: true,
+      stats: { performance: "50ms", connections: "1000+" },
     },
     {
-      title: "Weather Forecast App",
-      description: "Beautiful weather app with location-based forecasts, interactive maps, and weather alerts.",
-      tech: ["Next.js", "TypeScript", "OpenWeather API", "Tailwind"],
+      title: "E-Commerce Marketplace",
+      description: "Scalable marketplace platform with vendor management, product catalog, secure payments, inventory tracking, and comprehensive admin dashboard.",
+      tech: ["Next.js", "Express", "PostgreSQL", "Stripe", "S3"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+      featured: false,
+    },
+    {
+      title: "AI-Powered Analytics Dashboard",
+      description: "Advanced analytics platform with machine learning insights, predictive modeling, data visualization, and automated reporting for business intelligence.",
+      tech: ["React", "Python", "TensorFlow", "PostgreSQL", "D3.js"],
+      github: "https://github.com",
+      demo: "https://demo.com",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      featured: false,
+    },
+    {
+      title: "Healthcare Management System",
+      description: "HIPAA-compliant healthcare platform with patient records, appointment scheduling, telemedicine, prescription management, and secure messaging.",
+      tech: ["Next.js", "Node.js", "MongoDB", "WebRTC", "AWS"],
+      github: "https://github.com",
+      demo: "https://demo.com",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+      featured: false,
+    },
+    {
+      title: "Social Media Platform",
+      description: "Feature-rich social network with real-time feeds, messaging, content moderation, advanced search, and engagement analytics. Built for scale.",
+      tech: ["React", "GraphQL", "Node.js", "PostgreSQL", "Redis"],
+      github: "https://github.com",
+      demo: "https://demo.com",
+      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+      featured: false,
     },
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-subtle" ref={ref}>
+    <section id="projects" className="py-24 bg-gradient-to-b from-background to-secondary/20" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,10 +74,13 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Featured <span className="text-primary">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6" />
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Real-world applications built with modern technologies and best practices
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -80,39 +91,61 @@ const Projects = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
               whileHover={{ y: -12 }}
-              className="bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-hover transition-all group"
+              className="bg-card/50 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-border/50 hover:border-primary/50 group"
             >
-              <div className="relative overflow-hidden h-48">
+              {/* Image */}
+              <div className="relative overflow-hidden h-56">
                 <motion.img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
                   whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 0.6 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-transparent opacity-80" />
+                
+                {project.featured && (
+                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg">
+                    <Star className="w-3 h-3 fill-current" />
+                    Featured
+                  </div>
+                )}
+
+                {project.stats && (
+                  <div className="absolute bottom-4 left-4 flex gap-2">
+                    {Object.entries(project.stats).map(([key, value]) => (
+                      <div key={key} className="bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold border border-border/50">
+                        <TrendingUp className="w-3 h-3 inline mr-1 text-primary" />
+                        {value}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+              {/* Content */}
+              <div className="p-6 space-y-4">
+                <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Tech stack */}
+                <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium border border-primary/20"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                {/* Buttons */}
+                <div className="flex gap-3 pt-2">
                   <Button
                     size="sm"
                     variant="outline"
@@ -124,11 +157,11 @@ const Projects = () => {
                   </Button>
                   <Button
                     size="sm"
-                    className="flex-1 bg-primary hover:bg-accent group/btn"
+                    className="flex-1 bg-primary hover:bg-primary/90 group/btn shadow-md"
                     onClick={() => window.open(project.demo, "_blank")}
                   >
                     <ExternalLink className="h-4 w-4 mr-2 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                    Demo
+                    Live Demo
                   </Button>
                 </div>
               </div>
