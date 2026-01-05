@@ -8,65 +8,85 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Enterprise SaaS Platform",
-      description: "Full-stack SaaS solution with multi-tenancy, role-based access control, real-time analytics, and automated billing. Serving 10K+ active users with 99.9% uptime.",
-      tech: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Stripe"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      title: "Applywise – Education Consultancy Platform",
+      description:
+        "Invitation-based education consultancy platform built to manage students, counselors, and application workflows. Implemented secure email-based user onboarding using AWS Cognito, role-based access control, and a scalable PostgreSQL database with Prisma ORM.",
+      tech: ["Next.js", "Node.js", "PostgreSQL", "Prisma ORM", "AWS Cognito"],
+      github: "", // Private repository (recommended to keep empty)
+      demo: "https://www.applywise.io/",
+      image:
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
       featured: true,
-      stats: { users: "10K+", uptime: "99.9%" },
+      stats: {
+        onboarding: "Invite-based",
+        auth: "AWS Cognito",
+      },
     },
+
     {
-      title: "Real-Time Collaboration Tool",
-      description: "WebSocket-based collaborative workspace with live editing, video conferencing, file sharing, and project management features. Optimized for teams of all sizes.",
-      tech: ["React", "Socket.io", "Redis", "MongoDB", "WebRTC"],
-      github: "https://github.com",
-      demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=800&q=80",
+      title: "Online Quran Learning Platform",
+      description:
+        "A responsive Quran learning website offering online Quran classes and Islamic courses. Built with modern UI/UX, smooth animations, and optimized performance to provide an engaging learning experience for students worldwide.",
+      tech: ["React (Vite)", "Tailwind CSS", "Framer Motion", "React Router"],
+      github: "https://github.com/Irshad117/quranic-learning-hub-connect",
+      demo: "https://online-quran1.vercel.app/",
+      image:
+        "https://images.unsplash.com/photo-1585036156171-384164a8c675?w=800&q=80",
       featured: true,
-      stats: { performance: "50ms", connections: "1000+" },
     },
+
     {
       title: "E-Commerce Marketplace",
-      description: "Scalable marketplace platform with vendor management, product catalog, secure payments, inventory tracking, and comprehensive admin dashboard.",
+      description:
+        "Scalable marketplace platform with vendor management, product catalog, secure payments, inventory tracking, and comprehensive admin dashboard.",
       tech: ["Next.js", "Express", "PostgreSQL", "Stripe", "S3"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
       featured: false,
     },
     {
       title: "AI-Powered Analytics Dashboard",
-      description: "Advanced analytics platform with machine learning insights, predictive modeling, data visualization, and automated reporting for business intelligence.",
+      description:
+        "Advanced analytics platform with machine learning insights, predictive modeling, data visualization, and automated reporting for business intelligence.",
       tech: ["React", "Python", "TensorFlow", "PostgreSQL", "D3.js"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
       featured: false,
     },
     {
       title: "Healthcare Management System",
-      description: "HIPAA-compliant healthcare platform with patient records, appointment scheduling, telemedicine, prescription management, and secure messaging.",
+      description:
+        "HIPAA-compliant healthcare platform with patient records, appointment scheduling, telemedicine, prescription management, and secure messaging.",
       tech: ["Next.js", "Node.js", "MongoDB", "WebRTC", "AWS"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
       featured: false,
     },
     {
       title: "Social Media Platform",
-      description: "Feature-rich social network with real-time feeds, messaging, content moderation, advanced search, and engagement analytics. Built for scale.",
+      description:
+        "Feature-rich social network with real-time feeds, messaging, content moderation, advanced search, and engagement analytics. Built for scale.",
       tech: ["React", "GraphQL", "Node.js", "PostgreSQL", "Redis"],
       github: "https://github.com",
       demo: "https://demo.com",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+      image:
+        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
       featured: false,
     },
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-background to-secondary/20" ref={ref}>
+    <section
+      id="projects"
+      className="py-24 bg-gradient-to-b from-background to-secondary/20"
+      ref={ref}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,7 +99,8 @@ const Projects = () => {
           </h2>
           <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4 sm:mb-6" />
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-            Real-world applications built with modern technologies and best practices
+            Real-world applications built with modern technologies and best
+            practices
           </p>
         </motion.div>
 
@@ -103,7 +124,7 @@ const Projects = () => {
                   transition={{ duration: 0.6 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-transparent opacity-80" />
-                
+
                 {project.featured && (
                   <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg">
                     <Star className="w-3 h-3 fill-current" />
@@ -114,7 +135,10 @@ const Projects = () => {
                 {project.stats && (
                   <div className="absolute bottom-4 left-4 flex gap-2">
                     {Object.entries(project.stats).map(([key, value]) => (
-                      <div key={key} className="bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold border border-border/50">
+                      <div
+                        key={key}
+                        className="bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold border border-border/50"
+                      >
                         <TrendingUp className="w-3 h-3 inline mr-1 text-primary" />
                         {value}
                       </div>
