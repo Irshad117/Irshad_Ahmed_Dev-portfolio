@@ -38,6 +38,17 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY not configured");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
     // Send notification email to you (the portfolio owner)
     const notificationResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -47,7 +58,7 @@ const handler = async (req: Request): Promise<Response> => {
       },
       body: JSON.stringify({
         from: "Portfolio Contact <onboarding@resend.dev>",
-        to: ["your-email@example.com"], // Replace with your actual email
+        to: ["irshadm791@gmail.com"],
         subject: `New Contact: ${subject}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -72,10 +83,12 @@ const handler = async (req: Request): Promise<Response> => {
       }),
     });
 
+    const notificationData = await notificationResponse.json();
+    console.log("Notification email response:", notificationData);
+
     if (!notificationResponse.ok) {
-      const errorData = await notificationResponse.text();
-      console.error("Failed to send notification email:", errorData);
-      throw new Error(`Failed to send notification email: ${errorData}`);
+      console.error("Failed to send notification email:", notificationData);
+      throw new Error(`Failed to send notification email: ${notificationData.message || JSON.stringify(notificationData)}`);
     }
 
     console.log("Notification email sent successfully");
@@ -126,7 +139,8 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     if (!confirmationResponse.ok) {
-      console.error("Failed to send confirmation email, but notification was sent");
+      const confirmationData = await confirmationResponse.json();
+      console.error("Failed to send confirmation email, but notification was sent:", confirmationData);
     } else {
       console.log("Confirmation email sent successfully");
     }
