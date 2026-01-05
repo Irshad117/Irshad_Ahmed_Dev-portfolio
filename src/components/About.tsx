@@ -71,7 +71,7 @@ const About = () => {
                 </h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   I'm a passionate <span className="text-primary font-semibold">Full-Stack Developer</span> with over{" "}
-                  <span className="text-primary font-semibold">3 years</span> of professional experience in designing and 
+                  <span className="text-primary font-semibold">2+ years</span> of professional experience in designing and 
                   developing enterprise-level web applications.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
@@ -83,8 +83,8 @@ const About = () => {
               <div className="space-y-4">
                 {[
                   { label: "Frontend Mastery", tech: "React, Next.js, TypeScript, Tailwind CSS" },
-                  { label: "Backend Excellence", tech: "Node.js, Express, PostgreSQL, MongoDB" },
-                  { label: "Cloud & DevOps", tech: "AWS, Docker, CI/CD, Serverless" },
+                  { label: "Backend Excellence", tech: "Node.js, PostgreSQL" },
+                  { label: "Cloud & DevOps", tech: "AWS, CI/CD, Serverless" },
                   { label: "Best Practices", tech: "Testing, Performance, Security, SEO" },
                 ].map((item, index) => (
                   <motion.div

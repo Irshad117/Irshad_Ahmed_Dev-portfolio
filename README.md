@@ -1,73 +1,90 @@
-# Welcome to your Lovable project
+# Portfolio Website
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/6a2e02a2-dd8f-4f36-bbf0-516d05075c25
+This repository contains my personal portfolio website showcasing my skills, projects, and experience as a frontend / full‑stack web developer. The project is built with modern web technologies and follows a clean, responsive, and performance‑focused design.
 
-## How can I edit this code?
+## Live Demo
 
-There are several ways of editing your application.
+You can view the live version of the portfolio here:
 
-**Use Lovable**
+**URL**: [https://your-live-portfolio-link.com](https://your-live-portfolio-link.com)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6a2e02a2-dd8f-4f36-bbf0-516d05075c25) and start prompting.
+*(Replace this link with your deployed URL)*
 
-Changes made via Lovable will be committed automatically to this repo.
+## Getting Started
 
-**Use your preferred IDE**
+You can run this project locally by following the steps below.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Make sure you have the following installed:
 
-Follow these steps:
+* Node.js (v18 or above recommended)
+* npm or yarn
+
+### Installation & Development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will start with hot‑reloading enabled for a smooth development experience.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+* `src/` – Application source code
+* `components/` – Reusable UI components
+* `pages/` – Page‑level components
+* `styles/` – Global and component styles
+* `assets/` – Images and static assets
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Technologies Used
 
-## What technologies are used for this project?
+This project is built using:
 
-This project is built with:
+* Vite
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+The project can be deployed on any modern hosting platform that supports static or Vite‑based React applications, such as:
 
-Simply open [Lovable](https://lovable.dev/projects/6a2e02a2-dd8f-4f36-bbf0-516d05075c25) and click on Share -> Publish.
+* Vercel
+* Netlify
+* Cloudflare Pages
 
-## Can I connect a custom domain to my Lovable project?
+Build command:
 
-Yes, you can!
+```sh
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Customization
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+You can easily customize this portfolio by:
+
+* Updating content and sections in the components
+* Modifying styles using Tailwind CSS
+* Adding new projects or pages as needed
+
+## License
+
+This project is open for personal use and customization. Feel free to fork and adapt it for your own portfolio.
+
+---
+
+**Author:** Irshad Ahmed

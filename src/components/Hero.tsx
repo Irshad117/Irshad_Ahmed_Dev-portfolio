@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
-      
+
       {/* Floating orbs */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
@@ -62,7 +62,9 @@ const Hero = () => {
               className="space-y-4 px-2"
             >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-                <span className="block text-foreground">Full-Stack Developer</span>
+                <span className="block text-foreground">
+                  Full-Stack Developer
+                </span>
                 <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient break-words">
                   Building Digital Excellence
                 </span>
@@ -76,8 +78,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2"
             >
-              Crafting scalable web applications with modern technologies. 
-              Specializing in React, Node.js, and cloud architecture to deliver 
+              Crafting scalable web applications with modern technologies.
+              Specializing in React, Node.js, and cloud architecture to deliver
               exceptional user experiences and robust backend solutions.
             </motion.p>
 
@@ -88,7 +90,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
             >
-              <Button
+              {/* <Button
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl px-8 py-6 text-lg font-semibold"
                 onClick={() => window.open("https://www.upwork.com/freelancers/irshadahmed", "_blank")}
@@ -96,16 +98,18 @@ const Hero = () => {
                 <Code2 className="mr-2 h-5 w-5" />
                 View My Work
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Button> */}
 
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-md transition-all duration-300 rounded-xl px-8 py-6 text-lg font-semibold"
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Download Resume
-              </Button>
+              <a href="/Irshad_Ahmed_Resume.pdf.pdf" download>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-md transition-all duration-300 rounded-xl px-8 py-6 text-lg font-semibold"
+                >
+                  <Download className="mr-2 h-5 w-5" />
+                  Download Resume
+                </Button>
+              </a>
             </motion.div>
 
             {/* Stats */}
@@ -116,8 +120,8 @@ const Hero = () => {
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 pt-12 sm:pt-16 max-w-3xl mx-auto px-2"
             >
               {[
-                { value: "50+", label: "Projects Delivered" },
-                { value: "3+", label: "Years Experience" },
+                { value: "5+", label: "Projects Delivered" },
+                { value: "2+", label: "Years Experience" },
                 { value: "98%", label: "Client Satisfaction" },
               ].map((stat, index) => (
                 <motion.div

@@ -51,15 +51,15 @@ const Contact = () => {
     { 
       icon: Mail, 
       label: "Email", 
-      value: "irshad.ahmed@professional.com", 
-      href: "mailto:irshad.ahmed@professional.com",
+      value: "irshadm791@gmail.com", 
+      href: "mailto:irshadm791@gmail.com",
       description: "Best way to reach me"
     },
     { 
       icon: Phone, 
       label: "Phone", 
-      value: "+1 (555) 123-4567", 
-      href: "tel:+15551234567",
+      value: "+923154565995", 
+      href: "tel:+923154565995",
       description: "Mon-Fri, 9AM-6PM EST"
     },
     { 
@@ -72,9 +72,9 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", color: "hover:text-[#0077b5]" },
-    { icon: Github, href: "https://github.com", label: "GitHub", color: "hover:text-foreground" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter", color: "hover:text-[#1DA1F2]" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/irshad-ahmed-06103710a/", label: "LinkedIn", color: "hover:text-[#0077b5]" },
+    { icon: Github, href: "https://github.com/Irshad117", label: "GitHub", color: "hover:text-foreground" },
+    { icon: Twitter, href: "https://x.com/IrshadGhoto", label: "Twitter", color: "hover:text-[#1DA1F2]" },
   ];
 
   const features = [
